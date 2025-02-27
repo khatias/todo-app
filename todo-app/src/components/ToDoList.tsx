@@ -2,7 +2,7 @@
 import { ToDoType } from "@/types/ToDo";
 import useTodos from "@/hooks/useTodos";
 import useSearchParamState from "@/hooks/useSearchParamState";
-
+import Loader from "./Loader";
 const useFilteredTodos = (todos: ToDoType[], search: string) => {
   return todos.filter((todo) =>
     todo.title.toLowerCase().includes(search.toLowerCase())
@@ -19,7 +19,7 @@ export default function ToDoTada() {
   };
 
   if (loading) {
-    return <h1>...loading</h1>;
+    return <Loader />;
   }
 
   if (error) {
